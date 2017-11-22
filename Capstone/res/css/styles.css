@@ -1,0 +1,571 @@
+/*
+rem   px
+32    512
+16    256
+8     128
+4     64
+2     32
+1.5   24
+1     16
+General page styles
+*/
+html body {
+  max-width: 100%;
+  overflow-x: hidden;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-family: helvetica, sans-serif, times;
+}
+
+h2, h3 {
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* toolbar */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  height: 4rem;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  z-index: 1;
+}
+
+.logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 2rem;
+}
+
+.logo img {
+  height: 3rem;
+}
+
+.logo h1 {
+  text-transform: uppercase;
+  font-size: 2rem;
+  margin-left: 0.5rem;
+}
+
+.toolbar span:last-child {
+  color: gray;
+}
+
+.logon {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 2rem;
+}
+
+.logon a {
+  color: black;
+  text-decoration: none;
+  margin: 0 1rem;
+  padding: 0.5rem;
+  border: white solid 0.2rem;
+  border-radius: 1rem;
+  transition: all 1s ease-out 0.1s;
+}
+
+.lion-mobile { /* This is only for smaller screens */
+  display: none;
+}
+
+.logon a:hover {
+  background-color: lavender;
+  border: royalblue solid 0.2rem;
+}
+
+.display-logos { /* This is the logos that apear after the screen gets to small */
+  display: none;
+}
+
+@media only screen and (max-width: 1003px){ /* buttons became ugly */
+  .logon a {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+}
+
+@media only screen and (max-width: 884px) { /* it's time to start displaying logos */
+  .logon {
+    padding-right: 2rem;
+  }
+  .change-to-logo {
+    display: none;
+  }
+  .display-logos {
+    display: flex;
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 610px) {
+  .toolbar h1 {
+    display: none;
+  }
+  .toolbar .logon {
+    justify-content: space-around;
+    width: 100%;
+  }
+  .logo img {
+    display: none;
+  }
+  .lion-mobile {
+    display: inline;
+  }
+}
+
+/* page */
+.page-content {
+  padding-top: 4rem; /* stops content on going under toolbar */
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  max-width: 100%;
+}
+
+/* Learn Something new every day container */
+.learn-every-day {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  background-color: lightgray;
+}
+
+.text-container {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  margin-right: 2rem;
+}
+
+.learn-every-day .img-container {
+  width: 60%;
+  margin: 2rem 1.5rem;
+  height: auto;
+}
+
+.img-container img, video {
+  max-width: 100%;
+  display: block;
+}
+
+.learn-every-day .text-container {
+  width: 30rem;
+  display: flex;
+  justify-content: center;
+}
+
+.learn-every-day .text-container h2{
+  margin-bottom: 2rem;
+}
+
+.learn-every-day a {
+  background-color: midnightblue;
+  color: white;
+  padding: 0.5rem 0;
+  text-align: center;
+  margin-top: 2rem;
+  transition: background-color 0.7s linear 0.1s;
+}
+
+.learn-every-day a:hover {
+  background-color: steelblue;
+}
+
+/* The image was getting smaller then the text container. 768 */
+@media only screen and (max-width: 768px) {
+  .learn-every-day{
+    flex-flow: column;
+    align-items: center;
+  }
+  .learn-every-day .img-container {
+    width: 100%;
+    margin: 0;
+  }
+  .learn-every-day .text-container {
+    margin: 2rem 1rem;
+    width: 95%;
+  }
+  .learn-every-day .text-container a {
+    margin-top: 1.5rem;
+  }
+}
+
+/* It dosent hurt to keep practising container */
+.keep-practising-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: row;
+}
+
+.left-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-flow: column;
+  width: 60%;
+  padding: 2rem;
+}
+
+.keep-practising-container .left-container {
+    border-right: lightgray solid 0.1rem;
+}
+
+.left-container h2 + p {
+  color: darkgray;
+}
+
+.left-container p, .left-container h2 {
+  margin-top: 2rem;
+}
+
+.left-container p:last-child {
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.right-container {
+  width: 40%;
+}
+
+.more-info-container {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+}
+
+.keep-practising-container .right-container .more-info-container:first-child {
+  border-bottom: lightgray solid 0.1rem;
+}
+
+.keep-practising-container .right-container .more-info-container:last-child {
+  border-top: lightgray solid 0.1rem;
+  background-color: lightgray;
+}
+
+.more-info-container .img-container {
+  width: 35%;
+  margin: 1rem;
+}
+
+.keep-practising-container .smallscreen-img {
+  display: none;
+}
+
+.more-info-container .text-container {
+  width: 65%;
+  margin: 0.5rem 0;
+  vertical-align: baseline;
+}
+
+.more-info-container .text-container p {
+  color: gray;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  text-align: left;
+}
+
+.more-info-container .text-container a {
+  font-size: 1rem;
+  transition: all 1s ease-out 0s;
+}
+
+.more-info-container .text-container a:hover {
+  color: deepskyblue;
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 768px) {
+  .keep-practising-container {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .keep-practising-container .left-container {
+    display: none;
+  }
+
+  .keep-practising-container .right-container {
+    width: 100%;
+  }
+
+  .keep-practising-container .right-container .more-info-container:first-child {
+    border-bottom: none;
+  }
+
+  .keep-practising-container .right-container .more-info-container:last-child {
+    background-color: white;
+    border-top: none;
+  }
+
+  .keep-practising-container .more-info-container {
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .keep-practising-container .img-container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 2rem 0;
+  }
+
+  .keep-practising-container .bigscreen-img {
+    display: none;
+  }
+
+  .keep-practising-container .smallscreen-img {
+    display: flex;
+  }
+
+  .keep-practising-container .text-container {
+    width: 100%;
+    margin: 2rem 0 2rem 4rem;
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 400px) { /* Images where being squished */
+  .keep-practising-container img {
+    height: 10rem;
+  }
+}
+
+/* Start learning container */
+.start-learning-container {
+    max-width: 100%;
+}
+
+.start-learning-container, .class-container{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background-color: lightgray;
+}
+
+.start-learning-container h2 {
+  margin-top: 2rem;
+}
+
+.classes-container {
+  margin: 2rem 4.5rem;
+  display: flex;
+  flex-flow: column;
+  max-width: 95%;
+}
+
+.classes-container-split {
+  display: flex;
+  flex-flow: row;
+}
+
+.class-container {
+  margin: 2rem;
+  width: 20rem;
+  background-color: white;
+}
+
+.class-container .img-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.start-learning-container .text-container h3, .start-learning-container .text-container p {
+  margin: 1rem;
+}
+
+.start-learning-container .text-container p {
+  color: gray;
+}
+
+@media only screen and (max-width: 1028px) {  /* the text was looking to large when the screen was smaller */
+  .start-learning-container .text-container {
+    font-size: 1rem;
+  }
+
+  /* The Course containers are beginning to strech on a smaller screen.
+  so I removed the split with 3 on top and 3 on bottom and make it wrap. */
+  .classes-container-split {
+    display: inline;
+  }
+  .classes-container {
+    display: flex;
+    flex-flow: wrap;
+    margin: 2%;
+  }
+
+  /* the background became smaller and that did not look good*/
+  .start-learning-container {
+    width: 100%;
+  }
+
+  /* The course containers where not the same height anymore */
+  .class-container {
+    height: 25rem;
+  }
+}
+
+@media only screen and (max-width: 826px) { /* Courses was wrapping to 1 course per line */
+  .classes-container-split {
+    width: 50%;
+    margin: 0;
+  }
+  .class-container {
+    width: 90%;
+    margin: 5% auto;
+  }
+}
+
+@media only screen and (max-width: 550px) { /* need to make the images disapear and less text for readability */
+  .start-learning-container {
+    background-color: white;
+    border-top: lightgray solid 0.1rem;
+  }
+
+  .start-learning-container h2 {
+    color: gray;
+  }
+
+  .start-learning-container .img-container, .start-learning-container p {
+    display: none;
+  }
+
+  .classes-container {
+    margin: 1rem auto;
+  }
+
+  .classes-container-split, .start-learning-container .class-container, .start-learning-container .text-container {
+    margin: 0;
+    width: 95%;
+  }
+
+  .start-learning-container .class-container {
+    height: auto;
+  }
+
+  .start-learning-container .text-container h3 {
+    background-color: lightgray;
+    color: steelblue;
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1rem 2rem 1rem;
+    margin: 0.5rem auto;
+    font-size: 2rem;
+  }
+}
+
+/* Thesis exhiobits container */
+.thesis-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.thesis-container h2 {
+    margin-top: 2rem;
+}
+
+.thesis-exhiobits-container {
+  display: flex;
+  flex-flow: row;
+}
+
+.video-container video {
+  max-width: 100%;
+}
+
+.video-container h3 {
+  margin-top: 2rem;
+}
+
+.video-container p {
+  color: gray;
+}
+
+.thesis-exhiobits-container .right-container {
+  margin: 2rem 0;
+}
+
+.thesis-exhiobits-container .right-container .more-info-container:first-child {
+  border-top: lightgray solid 0.1rem;
+  background-color: lightgray;
+}
+
+@media only screen and (max-width: 657px) {
+  .thesis-container h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    color: gray;
+  }
+
+  .thesis-exhiobits-container {
+    width: 100%;
+  }
+
+  .thesis-container .right-container, .video-container h3, .video-container p {
+    display: none;
+  }
+  .thesis-container .left-container {
+    width: 100%;
+    padding: 0;
+    margin: 1rem 0 2.5rem 0;
+  }
+  .video-container {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+/* footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  color: gray;
+  font-size: 1rem;
+  width: 100%;
+  border-top: lightgray solid 0.1rem;
+}
+
+footer .copywrite {
+  margin: 1rem 1.5rem;
+}
+
+footer .footer-nav {
+  margin: 1rem 1.5rem;
+}
+
+footer a {
+  transition: all 1s ease-out 0s;
+}
+
+footer a:hover {
+  color: deepskyblue;
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 530px) {
+  footer a {
+    display: none;
+  }
+  footer {
+    border-top: none;
+  }
+}
